@@ -1,38 +1,158 @@
-.App {
-  text-align: center;
+.loader {
+  width: 60px;
+  height: 40px;
+  position: relative;
+  display: inline-block;
+  --base-color: #FFF;
+  /*use your base color*/
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.loader::before {
+  content: '';
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #263238;
+  background-image: radial-gradient(circle 8px at 18px 18px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 18px 0px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 0px 18px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 36px 18px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 18px 36px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 30px 5px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 30px 5px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 30px 30px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 5px 30px, var(--base-color) 100%, transparent 0), radial-gradient(circle 4px at 5px 5px, var(--base-color) 100%, transparent 0);
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  animation: rotationBack 3s linear infinite;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.loader::after {
+  content: '';
+  left: 35px;
+  top: 15px;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #263238;
+  background-image: radial-gradient(circle 5px at 12px 12px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 12px 0px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 0px 12px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 24px 12px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 12px 24px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 20px 3px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 20px 3px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 20px 20px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 3px 20px, var(--base-color) 100%, transparent 0), radial-gradient(circle 2.5px at 3px 3px, var(--base-color) 100%, transparent 0);
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  animation: rotationBack 4s linear infinite reverse;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
+@keyframes rotationBack {
+  0% {
     transform: rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
+
+  100% {
+    transform: rotate(-360deg);
   }
+}
+
+
+.flex {
+  display: 'flex';
+}
+
+.justify-end {
+  justify-content: end
+}
+
+.tranperentblur {
+  color: black;
+  /* background: rgba(255, 255, 255, 0); */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid green;
+  margin: 20px 0px;
+  padding: 10px;
+}
+
+.blogcardtitle {
+  font-size: 20px;
+}
+
+.blogcarddiscription {
+  font-size: 12px;
+  text-align: justify;
+  margin: 5px 0px;
+}
+
+.shadow-pop-brConstent {
+  -webkit-animation: shadow-pop-br .3s cubic-bezier(.47, 0.000, .745, .715) both;
+  animation: shadow-pop-br .3s cubic-bezier(.47, 0.000, .745, .715) both
+}
+
+@-webkit-keyframes shadow-pop-br {
+  0% {
+    -webkit-box-shadow: 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85;
+    box-shadow: 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85;
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0)
+  }
+
+  100% {
+    -webkit-box-shadow: 1px 1px #99BC85, 2px 2px #99BC85, 3px 3px #99BC85, 4px 4px #99BC85, 5px 5px #99BC85, 6px 6px #99BC85, 7px 7px #99BC85, 8px 8px #99BC85;
+    box-shadow: 1px 1px #99BC85, 2px 2px #99BC85, 3px 3px #99BC85, 4px 4px #99BC85, 5px 5px #99BC85, 6px 6px #99BC85, 7px 7px #99BC85, 8px 8px #99BC85;
+    -webkit-transform: translateX(-8px) translateY(-8px);
+    transform: translateX(-8px) translateY(-8px)
+  }
+}
+
+@keyframes shadow-pop-br {
+  0% {
+    -webkit-box-shadow: 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85;
+    box-shadow: 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85, 0 0 #99BC85;
+    -webkit-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0)
+  }
+
+  100% {
+    -webkit-box-shadow: 1px 1px #99BC85, 2px 2px #99BC85, 3px 3px #99BC85, 4px 4px #99BC85, 5px 5px #99BC85, 6px 6px #99BC85, 7px 7px #99BC85, 8px 8px #99BC85;
+    box-shadow: 1px 1px #99BC85, 2px 2px #99BC85, 3px 3px #99BC85, 4px 4px #99BC85, 5px 5px #99BC85, 6px 6px #99BC85, 7px 7px #99BC85, 8px 8px #99BC85;
+    -webkit-transform: translateX(-8px) translateY(-8px);
+    transform: translateX(-8px) translateY(-8px)
+  }
+}
+
+
+/* Width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #BFD8AF;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #99BC85;
+}
+
+/* Firefox */
+/* Width */
+scrollbar {
+  width: 10px;
+}
+
+/* Track */
+scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+scrollbar-thumb:hover {
+  background: #99BC85;
 }
